@@ -12,7 +12,7 @@
             <div class="space-y-2">
                 <label for="username" class="block text-gray-300 font-semibold">Username*</label>
                 <input type="text" id="username" name="username"
-                    class="w-full p-3 bordea border-gray-600 bg-gray-800 text-gray-300 rounded focus:outline-none focus:border-blue-500"
+                    class="w-full p-3 border border-gray-600 bg-gray-800 text-gray-300 rounded focus:outline-none focus:border-blue-500"
                     placeholder="Masukkan username" required>
             </div>
 
