@@ -50,25 +50,29 @@
         
         <!-- Visi, Misi & Motto Content -->
         <div id="visiContent" class="section-content hidden px-4 pb-3 pt-5">
-          <h2 class="text-[#201A09] text-2xl font-bold leading-tight tracking-[-0.015em]">Visi, Misi &amp; Motto</h2>
-          @foreach ($visimisis as $visimisi)
-          <div class="mt-4">
-            <p class="text-[#201A09] text-base font-normal leading-normal">
-              <strong>Visi:</strong> {{ $visimisi->visi }}
-            </p>
-            <p class="text-[#201A09] text-base font-normal leading-normal mt-2">
-              <strong>Misi:</strong>
-              <ol class="list-decimal pl-5">
-                @foreach (explode(',', $visimisi->misi) as $misiItem)
-                <li>{{ $misiItem }}</li>
-                @endforeach
-              </ol>
-            </p>
-            <p class="text-[#201A09] text-base font-normal leading-normal mt-2">
-              <strong>Motto:</strong> {{ $visimisi->motto }}
-            </p>
+          <h2 class="text-[#201A09] text-3xl font-bold leading-tight tracking-tight animate__animated animate__fadeInDown">Visi, Misi &amp; Motto</h2>
+          <div class="mt-6 space-y-8">
+            @foreach ($visimisis as $visimisi)
+            <div class="bg-white rounded-xl p-6 shadow-lg border-l-4 border-transparent hover:border-l-4 hover:border-gradient-to-r hover:from-[#FAC638] hover:to-[#A07D1C] transform transition-all duration-500 hover:scale-105 animate__animated animate__fadeInUp">
+              <p class="text-[#201A09] text-lg font-semibold leading-snug">
+                <span class="block font-bold mb-2">Visi:</span> 
+                {{ $visimisi->visi }}
+              </p>
+              <div class="mt-4">
+                <span class="block text-lg font-bold mb-2 text-[#201A09]">Misi:</span>
+                <ol class="list-decimal pl-6 space-y-1 text-[#201A09] text-base">
+                  @foreach (explode(',', $visimisi->misi) as $misiItem)
+                  <li class="leading-relaxed">{{ $misiItem }}</li>
+                  @endforeach
+                </ol>
+              </div>
+              <p class="mt-4 text-[#201A09] text-lg font-semibold leading-snug">
+                <span class="block font-bold mb-2">Motto:</span> 
+                {{ $visimisi->motto }}
+              </p>
+            </div>
+            @endforeach
           </div>
-          @endforeach
         </div>
         
         <!-- Struktur Organisasi Content -->
