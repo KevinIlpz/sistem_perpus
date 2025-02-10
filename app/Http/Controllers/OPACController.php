@@ -8,13 +8,17 @@ use Illuminate\Support\Facades\Storage;
 
 class OPACController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // Fetch all books from the database
-        $books = Buku::all();
+        $search = $request->input('search');
 
-        // Pass the books to the view
+        $books = Buku::when($search, function ($query) use ($search) {
+            return $query->where('judul', 'like', "%$search%")
+                         ->orWhere('penulis', 'like', "%$search%")
+                         ->orWhere('penerbit', 'like', "%$search%")
+                         ->orWhere('isbn', 'like', "%$search%");
+        })->get();
+
         return view('opac', ['books' => $books]);
     }
-
 }
